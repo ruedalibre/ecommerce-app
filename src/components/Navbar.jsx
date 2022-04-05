@@ -1,4 +1,5 @@
-import { Search } from '@material-ui/icons'
+import { Badge } from '@material-ui/core'
+import { Search, ShoppingCartOutlined } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -8,10 +9,13 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
 `
 // Estos son los elementos separados del navbar, según su ubicación
+
+/* ----------- PARTE IZQUIERDA DEL NAVBAR --------------*/
 const Left = styled.div`
 /* al poner 1 unidad en flex asume que cada una de las partes de tienen una unidad de valor flex tienen el mismo espacio en sentido horizontal. Si agrego más unidades a uno de los elementos, modificará la fracción para adaptarla a la nueva distribución. */
     flex: 1;
@@ -25,14 +29,38 @@ const Language = styled.span`
     cursor: pointer;
 `
 const SearchContainer = styled.div`
-    border: 1px solid lightgray;
+    border: 0.5px solid lightgray;
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+    padding: 5px;
 `
 
+const Input = styled.input`
+    border: none;
+`
+/* ----------- PARTE CENTRAL DEL NAVBAR --------------*/
 const Center = styled.div`
     flex: 1;
+    text-align: center;
 `
+const Logo = styled.h1`
+    font-weight: bold;
+`
+
+/* ----------- PARTE DERECHA DEL NAVBAR --------------*/
 const Right = styled.div`
     flex: 1;
+    display: flex;
+    align-items: center;
+    // Esto envía los elementos hasta el extremo derecho
+    justify-content: flex-end;
+`
+
+const MenuItem = styled.div`
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 25px;
 `
 
 
@@ -44,13 +72,22 @@ const Navbar = () => {
             <Left>
                 <Language>EN</Language>
                 <SearchContainer>
-                    input
-                    <Search/>
+                    <Input/>
+                    {/* Puedo agregar estilos al ícono de búsqueda de manera directa en sus propiedades*/}
+                    <Search style={{color:"gray", fontSize:16}}/>
                 </SearchContainer>
 
             </Left>
-            <Center>Center</Center>
-            <Right>Right</Right>
+            <Center><Logo>RUEDALIBRE</Logo></Center>
+            <Right>
+                <MenuItem>REGISTER</MenuItem>
+                <MenuItem>SIGN IN</MenuItem>
+                <MenuItem>
+                    <Badge badgeContent={4} color="primary">
+                        <ShoppingCartOutlined/>
+                    </Badge>
+                </MenuItem>
+            </Right>
         </Wrapper>
     </Container>
   )
