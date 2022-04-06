@@ -39,6 +39,9 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
+
+    // Esta transición hace que las slides se desplacen suavemente al cambiar de una a otra
+    transition: all  1.5s ease;
     
     // Propiedad para mover el slide en el sentido horizontal. El vw indica que la imagen actual se mueve totalmente hasta salirse del contenedor y da entrada a la siguiente imagen que ocupa su lugar.
     transform: translateX(${props=>props.slideIndex * -100}vw)
@@ -49,7 +52,7 @@ const Slide = styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
-    // Toma la propiedad creada para el color diferenciado de los fondos de los slides
+    // Toma la propiedad creada para los diferentes colores de los fondos de los slides
     background-color: #${props=>props.bg};
 `;
 
@@ -94,6 +97,7 @@ const Slider = () => {
         if(direction==="left"){
             setSlideIndex(slideIndex > 0 ? slideIndex -1 : 2)
         } else {
+            // O sea, si le doy click al right arrow 
             setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0)
         }
     };
