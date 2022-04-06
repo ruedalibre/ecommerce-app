@@ -39,8 +39,9 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
-    // Propiedad para mover el slide en el sentido horizontal. El vw indica que la imagen actual se mueve totalmente hasta salirse del contenedor y da entrada a la siguiente imagen que ocupa su lugar
-    transform: translateX(0vw)
+    
+    // Propiedad para mover el slide en el sentido horizontal. El vw indica que la imagen actual se mueve totalmente hasta salirse del contenedor y da entrada a la siguiente imagen que ocupa su lugar.
+    transform: translateX(${props=>props.slideIndex * -100}vw)
 `
 /* ------------ ESTILO DE LA DIAPOSITIVA --------- */
 const Slide = styled.div`
@@ -87,8 +88,15 @@ const Button = styled.button`
 /*------------------------------------------------ */
 const Slider = () => {
     /* ESTADOS PARA ALTERNAR LAS IMÁGENES DEL SLIDER */
-    const [sllideIndex, setSlideIndex] = useState(0);
-    const handleClick = (direction) => {};
+    const [slideIndex, setSlideIndex] = useState(0);
+    const handleClick = (direction) => {
+        /* Aquí van los condicionales que manejan el avance y retroceso de los slides al hacer click en las flechas */
+        if(direction==="left"){
+            setSlideIndex(slideIndex > 0 ? slideIndex -1 : 2)
+        } else {
+            setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0)
+        }
+    };
 
     return (
     <Container>
@@ -96,7 +104,7 @@ const Slider = () => {
         <Arrow direction="left" onClick={()=> handleClick("left")}>
             <ArrowLeftOutlined/>
         </Arrow>
-        <Wrapper>
+        <Wrapper slideIndex={slideIndex}>
             {/* Para acceder a los slides de manera dinámica */}
             {sliderItems.map(item=>(
             <Slide bg={item.bg}>
