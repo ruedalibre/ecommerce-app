@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons'
+import { sliderItems} from '../data'
 
 const Container = styled.div`
     // De esta manera el slider queda cubriendo el ancho completo y la altura total disponible de su contenedor
@@ -96,40 +97,20 @@ const Slider = () => {
             <ArrowLeftOutlined/>
         </Arrow>
         <Wrapper>
-            <Slide bg="f5fafd">
+            {/* Para acceder a los slides de manera dinámica */}
+            {sliderItems.map(item=>(
+            <Slide bg={item.bg}>
                 <ImgContainer>
                     {/* Forma de insertar la imagen directamente sin necesidad de hacer imports */}
-                    <Image src={require('../assets/modelo1.png')} alt="modelo 1"/>
+                    <Image src={item.img}/>
                 </ImgContainer>
                 <InfoContainer>
-                    <Title>SUMMER SALE</Title>
-                    <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
+                    <Title>{item.title}</Title>
+                    <Desc>{item.desc}</Desc>
                     <Button>SHOW NOW</Button>
                 </InfoContainer>
             </Slide>
-            <Slide bg="fcf1ed">
-                <ImgContainer>
-                    {/* Forma de insertar la imagen directamente sin necesidad de hacer imports */}
-                    <Image src={require('../assets/modelo1.png')} alt="modelo 1"/>
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>WINTER SALE</Title>
-                    <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-                    <Button>SHOW NOW</Button>
-                </InfoContainer>
-            </Slide>
-            <Slide bg="fbf0f4">
-                <ImgContainer>
-                    {/* Forma de insertar la imagen directamente sin necesidad de hacer imports */}
-                    <Image src={require('../assets/modelo1.png')} alt="modelo 1"/>
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>POPULAR SALE</Title>
-                    <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-                    <Button>SHOW NOW</Button>
-                </InfoContainer>
-            </Slide>
-
+            ))}
         </Wrapper>
         <Arrow direction="right" onClick={()=> handleClick("right")}>
             <ArrowRightOutlined/>
