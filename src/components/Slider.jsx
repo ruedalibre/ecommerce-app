@@ -111,7 +111,7 @@ const Slider = () => {
         <Wrapper slideIndex={slideIndex}>
             {/* Para acceder a los slides de manera dinámica */}
             {sliderItems.map(item=>(
-            <Slide bg={item.bg}>
+            <Slide bg={item.bg} key={item.id}>
                 <ImgContainer>
                     {/* Forma de insertar la imagen directamente sin necesidad de hacer imports */}
                     <Image src={item.img}/>
