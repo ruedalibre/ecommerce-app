@@ -8,6 +8,7 @@ const Container = styled.div`
     display: flex;
     // Para que las imágenes no se salgan del ancho total del contenedor
     flex-wrap: wrap;
+    justify-content: space-between;
 `
 
 const Products = () => {
