@@ -59,11 +59,13 @@ const Right = styled.div`
 `
 
 const ContactItem = styled.div`
-
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
 `
 
 const Payment = styled.img`
-
+    width: 50%
 `
 
 const Footer = () => {
@@ -107,13 +109,13 @@ const Footer = () => {
         <Right>
             <Title>Contact</Title>
             <ContactItem>
-                <Room/> Milla de Oro, Medellín, Colombia. 
+                <Room style={{marginRight:"10px"}}/> Milla de Oro, Medellín, Colombia. 
             </ContactItem>
             <ContactItem>
-                <Phone/> Phone: +57 43271945
+                <Phone style={{marginRight:"10px"}}/> Phone: +57 43271945
             </ContactItem>
             <ContactItem>
-                <MailOutline/> info@ruedalibre.us
+                <MailOutline style={{marginRight:"10px"}}/> info@ruedalibre.us
             </ContactItem>
             <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
 
