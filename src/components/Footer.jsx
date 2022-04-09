@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Pinterest } from '@material-ui/icons'
+import { Facebook, Instagram, Twitter, Pinterest, MailOutline, Room, Phone } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -37,20 +37,33 @@ const Center = styled.div`
 `
 
 const Title = styled.h3`
-
+    margin-bottom: 30px;
 `
 
 const List = styled.ul`
-
+    // Es necesario resetear margin y padding porque en las listas traen valores por defecto
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
 `
 
 const ListItem = styled.li`
+    width: 50%; 
+    margin-bottom: 10px;
 `
-
-
 const Right = styled.div`
     flex: 1;  
-    padding:  
+    padding: 20px;
+`
+
+const ContactItem = styled.div`
+
+`
+
+const Payment = styled.img`
+
 `
 
 const Footer = () => {
@@ -79,17 +92,30 @@ const Footer = () => {
         </Left>
         <Center>
             <Title>Useful Links</Title>
-            <ListItem>Home</ListItem>
-            <ListItem>Cart</ListItem>
-            <ListItem>Man Fashion</ListItem>
-            <ListItem>Woman Fashion</ListItem>
-            <ListItem>Accesories</ListItem>
-            <ListItem>My Account</ListItem>
-            <ListItem>Order Tracking</ListItem>
-            <ListItem>Wishlist</ListItem>
-            <ListItem>Terms</ListItem>
+            <List>
+                <ListItem>Home</ListItem>
+                <ListItem>Cart</ListItem>
+                <ListItem>Man Fashion</ListItem>
+                <ListItem>Woman Fashion</ListItem>
+                <ListItem>Accesories</ListItem>
+                <ListItem>My Account</ListItem>
+                <ListItem>Order Tracking</ListItem>
+                <ListItem>Wishlist</ListItem>
+                <ListItem>Terms</ListItem>
+            </List>
         </Center>
         <Right>
+            <Title>Contact</Title>
+            <ContactItem>
+                <Room/> Milla de Oro, Medellín, Colombia. 
+            </ContactItem>
+            <ContactItem>
+                <Phone/> Phone: +57 43271945
+            </ContactItem>
+            <ContactItem>
+                <MailOutline/> info@ruedalibre.us
+            </ContactItem>
+            <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
 
         </Right>
 
