@@ -52,7 +52,7 @@ const Center = styled.div`
 `
 const Logo = styled.h1`
     font-weight: bold;
-    ${mobile({fontSize: "24px"})}
+    ${mobile({marginLeft: "10px", fontSize: "22px"})}
 `
 
 /* ----------- PARTE DERECHA DEL NAVBAR --------------*/

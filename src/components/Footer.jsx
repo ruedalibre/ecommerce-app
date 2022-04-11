@@ -1,9 +1,11 @@
 import { Facebook, Instagram, Twitter, Pinterest, MailOutline, Room, Phone } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../responsive'
 
 const Container = styled.div`
     display: flex;
+    ${mobile({flexDirection: "column"})}
 `
 const Left = styled.div`
     flex: 1;
@@ -34,6 +36,7 @@ const SocialIcon = styled.div`
 const Center = styled.div`
     flex: 1;    
     padding: 20px;
+    ${mobile({display: "none"})}
 `
 
 const Title = styled.h3`
@@ -72,7 +75,7 @@ const Footer = () => {
   return (
     <Container>
         <Left>
-            <Logo>RUEDALIBRE</Logo>
+            <Logo>myBRAND</Logo>
             <Desc>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
             </Desc>
@@ -115,7 +118,7 @@ const Footer = () => {
                 <Phone style={{marginRight:"10px"}}/> Phone: +57 43271945
             </ContactItem>
             <ContactItem>
-                <MailOutline style={{marginRight:"10px"}}/> info@ruedalibre.us
+                <MailOutline style={{marginRight:"10px"}}/> info@mybrand.us
             </ContactItem>
             <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@material-ui/icons'
 import { sliderItems} from '../data'
+import { mobile } from '../responsive'
 
 const Container = styled.div`
     // De esta manera el slider queda cubriendo el ancho completo y la altura total disponible de su contenedor
@@ -11,6 +12,7 @@ const Container = styled.div`
     position: relative;
     // Para que las demás imágenes del slider queden ocultas se debe usar la propiedad:
     overflow: hidden;
+    ${mobile({display: "none"})}
 `;
 
 const Arrow = styled.div`
