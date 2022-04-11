@@ -2,9 +2,12 @@ import { Badge } from '@material-ui/core'
 import { Search, ShoppingCartOutlined } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../responsive'
 
 const Container = styled.div`
     height: 60px;
+    /* Para usar el modo responsive llamo las propiedades creadas en el archivo responsive.js */
+    ${mobile({height: "50px"})}
 `
 
 const Wrapper = styled.div`
@@ -12,6 +15,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
+    ${mobile({padding: "10px 0px"})}
 `
 // Estos son los elementos separados del navbar, según su ubicación
 
@@ -27,17 +31,19 @@ const Left = styled.div`
 const Language = styled.span`
     font-size: 14px;
     cursor: pointer;
+    ${mobile({display: "none"})}
 `
 const SearchContainer = styled.div`
     border: 0.5px solid lightgray;
     display: flex;
     align-items: center;
-    margin-left: 25px;
+    margin-left: 10px;
     padding: 5px;
 `
 
 const Input = styled.input`
     border: none;
+    ${mobile({width: "50px"})}
 `
 /* ----------- PARTE CENTRAL DEL NAVBAR --------------*/
 const Center = styled.div`
@@ -46,6 +52,7 @@ const Center = styled.div`
 `
 const Logo = styled.h1`
     font-weight: bold;
+    ${mobile({fontSize: "24px"})}
 `
 
 /* ----------- PARTE DERECHA DEL NAVBAR --------------*/
@@ -55,12 +62,14 @@ const Right = styled.div`
     align-items: center;
     // Esto envía los elementos hasta el extremo derecho
     justify-content: flex-end;
+    ${mobile({flex: 2, justifyContent: "center"})}
 `
 
 const MenuItem = styled.div`
     font-size: 14px;
     cursor: pointer;
     margin-left: 25px;
+    ${mobile({fontSize: "12px", marginLeft: "10px"})}
 `
 
 
@@ -72,13 +81,13 @@ const Navbar = () => {
             <Left>
                 <Language>EN</Language>
                 <SearchContainer>
-                    <Input/>
+                    <Input placeholder='Search'/>
                     {/* Puedo agregar estilos al ícono de búsqueda de manera directa en sus propiedades*/}
                     <Search style={{color:"gray", fontSize:16}}/>
                 </SearchContainer>
 
             </Left>
-            <Center><Logo>RUEDALIBRE</Logo></Center>
+            <Center><Logo>myBRAND</Logo></Center>
             <Right>
                 <MenuItem>REGISTER</MenuItem>
                 <MenuItem>SIGN IN</MenuItem>

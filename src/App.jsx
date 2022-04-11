@@ -8,7 +8,7 @@ import Cart from './pages/Cart';
 
 const App = () => {
   // Creo la página de Home aparte y paso como el return de la App para que la cargue al abrir la aplicación. 
-  return <Cart/>;
+  return <Home/>;
 };
 
 export default App;
