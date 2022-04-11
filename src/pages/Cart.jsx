@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Announcement from '../components/Announcement'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import snickers from '../assets/snickers.png'
 
 const Container = styled.div`
 
@@ -45,6 +46,40 @@ const Info = styled.div`
     flex: 3;
 
 `
+const Product = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+const ProductDetail = styled.div`
+    flex: 2;
+    display: flex;
+`
+const Image = styled.img`
+    width: 200px;;
+`
+const Details = styled.div`
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+`
+const ProductName = styled.span`
+`
+const ProductId = styled.span`
+`
+const ProductColor = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: ${props=>props.color};
+`
+const ProductSize = styled.span`
+`
+const PriceDetail = styled.div`
+    flex: 1;
+`
+
+
 const Summary = styled.div`
     flex: 1;
 `
@@ -65,7 +100,22 @@ const Cart = () => {
                 <TopButton type="filled">CHECKOUT NOW</TopButton>
             </Top>
             <Bottom>
-                <Info>Info</Info>
+                <Info>
+                    <Product>
+                        <ProductDetail>
+                            <Image src={snickers}/>
+                            <Details>
+                                <ProductName><b>Product:</b>NIKE SHOES</ProductName>
+                                <ProductId><b>ID:</b>9847593029</ProductId>
+                                <ProductColor color="black"/>
+                                <ProductSize><b>Size:</b>38.5</ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            Price
+                        </PriceDetail>
+                    </Product>
+                </Info>
                 <Summary>Summary</Summary>
             </Bottom>
         </Wrapper>
