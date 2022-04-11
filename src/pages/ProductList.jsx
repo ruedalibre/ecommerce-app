@@ -31,7 +31,7 @@ const Select = styled.select`
     margin-right: 20px;
 `
 const Option = styled.option`
-    padding: 15px;
+    
 `
 
 /* Voy a reusar varios de los componentes del Home ya que se repiten para esta página */
