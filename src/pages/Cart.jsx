@@ -4,6 +4,8 @@ import Announcement from '../components/Announcement'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import snickers from '../assets/snickers.png'
+import shorts from '../assets/shorts.png'
+import { Add, Remove } from '@material-ui/icons'
 
 const Container = styled.div`
 
@@ -74,15 +76,64 @@ const ProductColor = styled.div`
     background-color: ${props=>props.color};
 `
 const ProductSize = styled.span`
+
 `
 const PriceDetail = styled.div`
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
-
+const ProductAmountContainer = styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+`
+const ProductAmount = styled.div`
+    font-style: 24px;
+    margin: 5px;
+`
+const ProductPrice = styled.div`
+    font-style: 30px;
+    font-weight: 200;
+`
+const Hr = styled.hr`
+    background-color: #eee;
+    border: none;
+    height: 1px;
+`
 
 const Summary = styled.div`
     flex: 1;
+    border: 0.5px solid lightgray;
+    border-radius: 10px;
+    padding: 20px;
+    height: 50vh;
 `
+const SummaryTitle = styled.h1`
+    font-weight: 200;
+`
+const SummaryItem = styled.div`
+    margin: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: ${props=>props.type === "total" && "500"};
+    font-size: ${props=>props.type === "total" && "24px"};
+`
+const SummaryItemText = styled.span`
+`
+const SummaryItemPrice = styled.span`
+`
+const Button = styled.button`
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+
+`
+
 
 const Cart = () => {
   return (
@@ -105,22 +156,65 @@ const Cart = () => {
                         <ProductDetail>
                             <Image src={snickers}/>
                             <Details>
-                                <ProductName><b>Product:</b>NIKE SHOES</ProductName>
-                                <ProductId><b>ID:</b>9847593029</ProductId>
+                                <ProductName><b>Product: </b>NIKE SHOES</ProductName>
+                                <ProductId><b>ID: </b>9847593029</ProductId>
                                 <ProductColor color="black"/>
-                                <ProductSize><b>Size:</b>38.5</ProductSize>
+                                <ProductSize><b>Size: </b>38.5</ProductSize>
                             </Details>
                         </ProductDetail>
                         <PriceDetail>
-                            Price
+                            <ProductAmountContainer>
+                                <Add/>
+                                <ProductAmount>2</ProductAmount>
+                                <Remove/>
+                            </ProductAmountContainer>
+                            <ProductPrice>$45</ProductPrice>
+                        </PriceDetail>
+                    </Product>
+                    <Hr/>
+                    <Product>
+                        <ProductDetail>
+                            <Image src={shorts}/>
+                            <Details>
+                                <ProductName><b>Product: </b>BEACH SHORTS</ProductName>
+                                <ProductId><b>ID: </b>984759777</ProductId>
+                                <ProductColor color="blue"/>
+                                <ProductSize><b>Size: </b>M</ProductSize>
+                            </Details>
+                        </ProductDetail>
+                        <PriceDetail>
+                            <ProductAmountContainer>
+                                <Add/>
+                                <ProductAmount>2</ProductAmount>
+                                <Remove/>
+                            </ProductAmountContainer>
+                            <ProductPrice>$ 45</ProductPrice>
                         </PriceDetail>
                     </Product>
                 </Info>
-                <Summary>Summary</Summary>
+                <Summary>
+                    <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+                    <SummaryItem>
+                        <SummaryItemText>Subtotal</SummaryItemText>
+                        <SummaryItemPrice>$ 60</SummaryItemPrice>
+                    </SummaryItem>
+                    <SummaryItem>
+                        <SummaryItemText>Estimated Shipping</SummaryItemText>
+                        <SummaryItemPrice>$ 6</SummaryItemPrice>
+                    </SummaryItem>
+                    <SummaryItem>
+                        <SummaryItemText>Shipping discount</SummaryItemText>
+                        <SummaryItemPrice>$ -6</SummaryItemPrice>
+                    </SummaryItem>
+                    <SummaryItem type="total">
+                        <SummaryItemText>Total</SummaryItemText>
+                        <SummaryItemPrice>$ 60</SummaryItemPrice>
+                    </SummaryItem>
+                    <Button>CHECKOUT NOW</Button>
+                </Summary>
             </Bottom>
         </Wrapper>
         <Footer/>
-
     </Container>
   )
 }
