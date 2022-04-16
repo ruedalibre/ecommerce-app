@@ -1,14 +1,26 @@
-import Product from './pages/Product';
-import Home from './pages/Home'
-import ProductList from './pages/ProductList';
+import React from "react";
+import Product from "./pages/Product";
+import Home from "./pages/Home";
+import ProductList from "./pages/ProductList";
 import Register from "./pages/Register";
-import Login from './pages/Login';
-import Cart from './pages/Cart';
-
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 const App = () => {
-  // Creo la página de Home aparte y paso como el return de la App para que la cargue al abrir la aplicación. 
-  return <Cart/>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route path="/products/:category" element={<ProductList/>}/>
+        <Route path="/product/:id" element={<Product/>}/>
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;
