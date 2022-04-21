@@ -22,8 +22,7 @@ const user = true;
         <Route path="/products/:category" element={<ProductList/>}/>
         <Route path="/product/:id" element={<Product/>}/>
         <Route path="/cart" element={<Cart/>}/>
-        <Route path="/login" element={<Login/>}
-          {...user ? <Navigate to="/"/> : <Login/>}/>
+        <Route path="/login" {...user ? <Navigate to="/"/> : <Login/>}/>
         <Route path="/register" element={<Register/>}/>
       </Routes>
     </BrowserRouter>
